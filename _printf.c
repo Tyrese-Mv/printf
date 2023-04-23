@@ -10,51 +10,23 @@
  */
 int _printf(const char *format, ...)
 {
-	unsigned int count = 0;
-	char c, *str;
+	unsigned int count = 0, increment;
 	va_list list;
 
-	while (*format != '\0')
+	va_start(list, format);
+	while(format[count] != '\0')
 	{
-		if (format == '%')
+		if (format[count] == '%')
 		{
-			format++;
-			switch (*format) :
-				case 'c':
-				{
-					c = (char)va_arg(args, int);
-					_putchar(c);
-					count++;
-					break;
-				}
-				case 's':
-				{
-					str = va_arg(args, char *);
-					_puts(str);
-					count += _strlen(str);
-					break;
-				}
-				case '%':
-				{
-					_putchar('%');
-					count++;
-					break;
-				}
-				default:
-				{
-					_putchar('%');
-					_putchar(*format);
-					count += 2;
-					break;
-				}
-			}
+			increment += _printcheck(format[count + 1], list);
+			count++;
 		}
 		else
 		{
-			_putchar(*format);
+			increment += write(STDOUT_FILENO, &format[count], 1);
 			count++;
 		}
 	}
 	va_end(list);
-	return (count);
+	return (increment);
 }
