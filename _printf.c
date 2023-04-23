@@ -10,45 +10,51 @@
  */
 int _printf(const char *format, ...)
 {
-	unsigned int k, i, count, len, j;
-	char *ch, *str;
-
-	count = 0;
-	i = _strlen(format);
-	ch = malloc(sizeof(char) * (i + 1));
+	unsigned int count = 0;
+	char c, *str;
 	va_list list;
 
-	va_start(list, format);
-	for (k = 0; k < i; k++)
+	while (*format != '\0')
 	{
-		if (format[k] != '\0')
+		if (format == '%')
 		{
-			ch[count] = (char) va_arg(list, int);
-			k++;
-			count++;
-		}
-		else if (format[k] == '%' && format[k + 1] == 's')
-		{
-			str = va_arg(list, char *);
-			len = _strlen(str);
-			for (j = 0; j < len; j++)
-			{
-				ch[count] = str[j];
-				count++;
+			format++;
+			switch (*format) :
+				case 'c':
+				{
+					c = (char)va_arg(args, int);
+					_putchar(c);
+					count++;
+					break;
+				}
+				case 's':
+				{
+					str = va_arg(args, char *);
+					_puts(str);
+					count += _strlen(str);
+					break;
+				}
+				case '%':
+				{
+					_putchar('%');
+					count++;
+					break;
+				}
+				default:
+				{
+					_putchar('%');
+					_putchar(*format);
+					count += 2;
+					break;
+				}
 			}
-			k++;
-			ch[count] = '\0';
 		}
 		else
 		{
-			ch[count] = format[k];
+			_putchar(*format);
 			count++;
 		}
 	}
-	ch[count] = '\0';
-	int result = write(STDOUT_FILENO, ch, count);
-
 	va_end(list);
-	free(ch);
-	return (result);
+	return (count);
 }
