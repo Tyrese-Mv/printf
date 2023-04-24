@@ -17,3 +17,8 @@ int _printint(va_list list)
          	num *= -1;
          	digit_count++;
  	}
+	int temp = num;
+ 	while (temp > 0) {
+         	temp /= 10;
+         	digit_count++;
+ 	}
