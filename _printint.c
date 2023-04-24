@@ -29,3 +29,9 @@ int _printint(va_list list)
          	num_str[i] = (num % 10) + '0';
          	num /= 10;
  	}
+	if (is_negative) {
+         	return (write(STDOUT_FILENO, "-", 1) + write(STDOUT_FILENO, num_str, digit_count));
+ 	} else {
+         	return (write(STDOUT_FILENO, num_str, digit_count));
+ 	}
+}
