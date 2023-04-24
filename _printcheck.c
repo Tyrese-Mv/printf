@@ -15,10 +15,10 @@ int _printcheck(const char format, va_list list)
 	char c1;
 
 	/**
-	 * struct FunctionStruct functions - collection of func and specifiers
+	 * functionStruct - collection of func and specifiers
 	 * @functions: collection of functions
 	 */
-	struct FunctionStruct functions[] = {
+	functionStruct functions[] = {
 	       {'c', _printchar}, {'s', _printstring}, {'\0', NULL}
 	};
 
