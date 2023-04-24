@@ -10,7 +10,7 @@
  */
 int _printf(const char *format, ...)
 {
-	unsigned int count = 0, increment;
+	unsigned int count = 0, increment = 0;
 	va_list list;
 
 	va_start(list, format);
@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 		if (format[count] == '%')
 		{
 			increment += _printcheck(format[count + 1], list);
-			count++;
+			count += 2;
 		}
 		else
 		{

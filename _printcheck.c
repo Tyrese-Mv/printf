@@ -11,7 +11,6 @@
 int _printcheck(const char format, va_list list)
 {
 	unsigned int i;
-	int naught = -1;
 	char c1;
 
 	/**
@@ -34,5 +33,5 @@ int _printcheck(const char format, va_list list)
 			return (write(STDOUT_FILENO, &c1, sizeof(c1)));
 		}
 	}
-	return (naught);
+	return (-1);
 }
