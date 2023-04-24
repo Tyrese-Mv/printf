@@ -22,3 +22,10 @@ int _printint(va_list list)
          	temp /= 10;
          	digit_count++;
  	}
+	char num_str[digit_count + 1];
+ 	num_str[digit_count] = '\0';
+
+ 	for (int i = digit_count - 1; i >= 0; i--) {
+         	num_str[i] = (num % 10) + '0';
+         	num /= 10;
+ 	}
