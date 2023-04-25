@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 /**
  *_printint - prints an integer
@@ -9,9 +10,10 @@
  */
 int _printint(va_list list)
 {
-	int num = va_arg(list, int), minus = 0;
+	int num = va_arg(list, int), minus = 0, temp, i;
 	int digit_count = 0;
 	int is_negative = 0;
+	char *num_str;
 
 	if (num < 0)
 	{
@@ -19,18 +21,15 @@ int _printint(va_list list)
 		num *= -1;
 		digit_count++;
 	}
-	int temp = num;
-
+	temp = num;
 	while (temp > 0)
 	{
 		temp /= 10;
 		digit_count++;
 	}
-
-	char num_str[digit_count + 1];
-
+	num_str = (char *) malloc((digit_count + 1) * sizeof(char));
 	num_str[digit_count] = '\0';
-	for (int i = digit_count - 1; i >= 0; i--)
+	for (i = digit_count - 1; i >= 0; i--)
 	{
 		num_str[i] = (num % 10) + '0';
 		num /= 10;
