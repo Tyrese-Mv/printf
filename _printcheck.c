@@ -18,7 +18,7 @@ int _printcheck(const char format, va_list list)
 	 * @functions: collection of functions
 	 */
 	functionStruct functions[] = {
-		{'c', _printchar}, {'s', _printstring},
+		{'c', _printchar}, {'r', _printReverse}, {'s', _printstring},
 		{'i', _printint}, {'d', _printint},
 		{'b', _printBinary},
 		{'\0', NULL}
