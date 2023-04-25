@@ -11,10 +11,10 @@
 int _printBinary(va_list list)
 {
 	unsigned int num = va_arg(list, unsigned int);
-	unsigned int bits = 8 * sizeof(unsigned int);
+	int bits = 8 * sizeof(unsigned int);
 	unsigned int *binary = malloc(bits * sizeof(unsigned int));
 	unsigned int *toPrint = malloc(bits * sizeof(unsigned int));
-	unsigned int i, k = 0, result;
+	int i, k = 0, result;
 
 	if (binary == NULL)
 		return (-1);
