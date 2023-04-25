@@ -35,11 +35,12 @@ int _printchar(va_list list)
 int _printstring(va_list list)
 {
 	char *str = va_arg(list, char *);
-	 if (str == NULL)
-	 {
-		 return (write(STDOUT_FILENO, "(null)", 6));
+
+	if (str == NULL)
+	{
+		return (write(STDOUT_FILENO, "(null)", 6));
 	}
-	 else
+	else
 	{
 		return (write(STDOUT_FILENO, str, _strlen(str)));
 	}
