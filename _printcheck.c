@@ -19,7 +19,7 @@ int _printcheck(const char format, va_list list)
 	 */
 	functionStruct functions[] = {
 		{'c', _printchar}, {'s', _printstring},
-		{'d', _printint}, {'i', _printint},
+		{'i', _printint}, {'d', _printint},
 		{'\0', NULL}
 	};
 
