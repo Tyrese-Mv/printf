@@ -29,11 +29,7 @@ int _printcheck(const char format, va_list list)
 		{
 			return (functions[i].printFunctions(list));
 		}
-		else
-		{
-			c1 = '%';
-			return (write(STDOUT_FILENO, &c1, sizeof(c1)));
-		}
 	}
-	return (-1);
+	c1 = '%';
+	return (write(STDOUT_FILENO, &c1, sizeof(c1)));
 }

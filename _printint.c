@@ -27,7 +27,7 @@ int _printint(va_list list)
 		temp /= 10;
 		digit_count++;
 	}
-	num_str = (char *) malloc((digit_count + 1) * sizeof(char));
+	num_str = (char *) malloc((digit_count + 2) * sizeof(char));
 	num_str[digit_count] = '\0';
 	for (i = digit_count - 1; i >= 0; i--)
 	{
