@@ -1,14 +1,23 @@
 #include "main.h"
 #include <stdarg.h>
 #include <unistd.h>
+#include <stdlib.h>
+/**
+ * _printBinary - converts int to binary
+ * @list: value to convert
+ * Return: convert binary or -1 if allocation fails
+ */
 
-int_printBinary(va_list list)
+int _printBinary(va_list list)
 {
 	unsigned int num = va_arg(list, unsigned int);
 	int bits = 8 * sizeof(unsigned int);
-	int binary[bits];
-	int toPrint[bits];
+	int *binary = malloc(bits * sizeof(unsigned int));
+	int *toPrint = malloc(bits * sizeof(unsigned int));
 	int i, k = 0;
+
+	if (binary == NULL)
+		return (-1);
 
 	for (i = 0; i < bits; i++)
 	{
