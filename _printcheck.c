@@ -20,7 +20,8 @@ int _printcheck(const char format, va_list list)
 	functionStruct functions[] = {
 		{'c', _printchar}, {'s', _printstring},
 		{'i', _printint}, {'d', _printint},
-		{'\0', NULL}, {'b', _printBinary}
+		{'b', _printBinary},
+		{'\0', NULL}
 	};
 
 	for (i = 0; functions[i].specifier != '\0'; i++)
