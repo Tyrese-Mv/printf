@@ -2,6 +2,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdlib.h>
+
 /**
  * _printBinary - converts int to binary
  * @list: value to convert
@@ -11,7 +12,7 @@
 int _printBinary(va_list list)
 {
 	unsigned int n = va_arg(list, unsigned int);
-	unsigned int mask = 1u << 31; 2 ^ 31
+	unsigned int mask = 1u << 31;
 	int count = 0;
 
 	while (mask != 0)
@@ -31,5 +32,4 @@ int _printBinary(va_list list)
 		count++;
 	}
 		return (count);
-	}
 }

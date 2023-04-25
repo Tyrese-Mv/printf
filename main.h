@@ -8,6 +8,7 @@ int _printchar(va_list list);
 int _printcheck(const char format, va_list list);
 int _printint(va_list list);
 int _printBinary(va_list list);
+int _printReverse(va_list list);
 
 /**
  * struct FunctionStruct - checks if specifier matches with the call
